@@ -34,8 +34,9 @@ if (isset($_GET['delete'])) {
 }
 
 // Show notes
-$sql = "SELECT * FROM mydata";
-$result = $conn->query($sql);
+$stmt = $conn->prepare("SELECT * FROM mydata");
+$stmt->execute();
+$result = $stmt->get_result();
 ?>
 
 <!DOCTYPE html>
